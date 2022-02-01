@@ -1,0 +1,8 @@
+<div *ngFor="let row of board" class="row">
+  <div
+    *ngFor="let cell of row; index as columnNumber"
+    (click)="columnClicked.emit(columnNumber)"
+    class="cell"
+    [ngClass]="{ 'player-token': cell === 'x', 'computer-token': cell === 'o' }"
+  ></div>
+</div>
