@@ -1,27 +1,26 @@
 # ConnectFour
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.1.
+Super basic version of connect four, with not many smarts at all.
+Built on angular with help from the angular cli
 
-## Development server
+## To run
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```
+npm install
+npm start
+```
 
-## Code scaffolding
+Navigate to `http://localhost:4200/`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## For review
 
-## Build
+Very basic implementation, but I've used the smart containers/dumb components pattern.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### GameBoardComponent (src/app/game-board/game-board.component.ts)
 
-## Running unit tests
+Simply takes the current board and displays in. When the user clicks on a column, it passes that information up to the smart container. It handles none of the logic.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### AppComponent (src/app/app.component.ts)
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This is the smart container. It is responsible for handling the state transitions of the game board.
+Whenever the game board changes, it passes it to the dumb component to render.
